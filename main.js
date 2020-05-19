@@ -6,15 +6,22 @@ class MyClass {
 		return "hi";
 	}
 	static async example() {
-		return (await MyClass.ccc());
+		var result = (await MyClass.ccc()) + (await MyClass.ccc()) + (await MyClass.ccc());
+		(await new Promise(function(resolve,reject) {
+			return haxe_Timer.delay(function() {
+				resolve(null);
+				return;
+			},3000);
+		}));
+		return result;
 	}
 }
 MyClass.__name__ = true;
 class Main {
 	static main() {
-		console.log("src/Main.hx:20:","Hello, world!");
+		console.log("src/Main.hx:26:","Hello, world!");
 		tink_core__$Future_Future_$Impl_$.ofJsPromise(MyClass.example()).map(function(s) {
-			console.log("src/Main.hx:22:",tink_core_OutcomeTools.sure(s));
+			console.log("src/Main.hx:28:",tink_core_OutcomeTools.sure(s));
 			return;
 		}).gather();
 	}

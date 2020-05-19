@@ -9,8 +9,14 @@ class MyClass implements IJSAsync {
 		return "hi";
 	}
 
+	inline static function wait(n)
+		return new js.lib.Promise((resolve, reject) -> {
+			haxe.Timer.delay(() -> resolve(null), n);
+		});
+
 	@:jsasync public static function example() {
-		var result = ccc().jsawait();
+		var result = ccc().jsawait() + ccc().jsawait() + ccc().jsawait();
+		wait(3000).jsawait();
 		return result;
 	}
 }
