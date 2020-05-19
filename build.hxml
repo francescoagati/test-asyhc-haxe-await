@@ -1,0 +1,11 @@
+-cp src
+-D analyzer-optimize
+-main Main
+-js main.js
+-dce full
+-D analyzer
+-D analyzer-optimize
+-lib jsasync
+-lib tink_core
+-D js-es=6
+--connect 6000
