@@ -5,7 +5,7 @@ using tink.core.Promise;
 using tink.core.Outcome;
 
 class MyClass implements IJSAsync {
-	@:jsasync  static function ccc() {
+	@:jsasync static function ccc() {
 		return "hi";
 	}
 
@@ -18,7 +18,7 @@ class MyClass implements IJSAsync {
 class Main {
 	static function main() {
 		trace("Hello, world!");
-        var x = MyClass.example().ofJsPromise();
-        x.map((s) -> trace(s.sure()));
+		var x = MyClass.example().ofJsPromise();
+		x.map((s) -> trace(s.sure()));
 	}
 }
